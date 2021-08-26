@@ -5,6 +5,8 @@ import Todo from './Todo';
 function ToDoList() {
     const [todos, setTodos] = useState([]);
 
+    
+
     const addTodo = todo => {
         if(!todo.text || /^\s*$/.test(todo.text)) {
             return
@@ -26,6 +28,7 @@ function ToDoList() {
         const removeArr = [...todos].filter(todo => todo.id !== id)
 
         setTodos(removeArr);
+        
     }
 
     const completeTodo = id => {
@@ -36,17 +39,20 @@ function ToDoList() {
             return todo
         })
         setTodos(updatededTodos)
+        
     }
     return (
-        <div>
+        <div className="todo-list">
             <h1>What's the plan for today???</h1>
             <TodoForm onSubmit={addTodo}/>
+            <div className="todo-container">
             <Todo 
             todos={todos}
             completeTodo={completeTodo}
             removeTodo={removeTodo}
             updateTodo={updateTodo}
             />
+            </div>
         </div>
     )
 }
