@@ -1,39 +1,11 @@
-import React, { useState } from 'react';
-import TodoForm from './TodoForm';
-import { CgClose } from 'react-icons/cg';
-import { GrEdit } from 'react-icons/gr';
+import React from 'react'
 
-function Todo({todos, completeTodo, removeTodo, updateTodo }) {
-    const [edit, setEdit] = useState({
-        id: null,
-        value: ''
-    });
-    
-    const submitUpdate = value => {
-        updateTodo(edit.id, value)
-        setEdit({
-            id: null,
-            value: ''
-        });
-    }
-    if (edit.id) {
-        return<TodoForm edit={edit} onSubmit={submitUpdate} />
-    }
-    return todos.map((todo, index)=> (
-        <div className={todo.isComplete ? 'todo-row complete' :
-        'todo-row'} key={index}>
-            <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-                {todo.text}
-            </div>
-            <div className="icons">
-                <CgClose 
-                onClick={() => removeTodo(todo.id)}
-                className="delete-icon"/>
-                <GrEdit onClick={() => setEdit({id: todo.id, value: todo.text})}
-                className="edit-icon"/>
-            </div>
+function Todo({todo, handleToggle}) {
+    return (
+        <div onClick={() =>handleToggle(todo.id)} className={todo.complete ? "strike" : ''}>
+            {todo.task}
         </div>
-    ))
+    )
 }
 
 export default Todo

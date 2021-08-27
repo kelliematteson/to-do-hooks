@@ -71,3 +71,7 @@ body {
   text-transform: capitalize;
 }
 
+.strike {
+  text-decoration: line-through;
+}
+
