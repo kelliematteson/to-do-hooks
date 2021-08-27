@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+const Title = styled.h1`
+    font-size: 3em;
+    text-align: center;
+    color: palevioletred;
+`;
 
 function Header() {
     return (
-        <header>
-            <h1>To Do List Header!</h1>
-        </header>
+        <Title>To Do List</Title>
     )
 }
 
