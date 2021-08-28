@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Subtitle from './components/Subtitle';
 import TodoForm from './components/ToDoForm';
 import ToDoList from './components/ToDoList';
 import data from './data.json';
@@ -29,8 +30,9 @@ function App() {
   return (
     <div className="todo-app">
       <Header />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
+      <Subtitle />
       <TodoForm addTask={addTask} />
+      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
     </div>
   );
 }
